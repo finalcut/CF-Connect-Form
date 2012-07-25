@@ -8,7 +8,7 @@
 		<cfset var local = structNew() />
 
 		<!--- todo: lookup the 901 number: 
-		<cfset local.banner = createObject("component","alert.com.banner").init() />
+		<cfset local.banner = createObject("component","com.blackboard.connect.banner").init() />
 		<cfset rc.nineOhOneNumber = local.banner.getnineOhOneNumber(arguments.rc.muid) />
 		--->
 
@@ -18,11 +18,11 @@
 
 		<cfif ArrayLen(local.user.getEmailAddresses()) EQ 0>
 
-			<cfset local.primaryEmail = createObject("component", "alert.com.email").init("#rc.muid#@marshall.edu", 1) />
+			<cfset local.primaryEmail = createObject("component", "com.blackboard.connect.email").init("#rc.muid#@marshall.edu", 1) />
 			<cfset local.user.addEmailAddress(local.primaryEmail) />
 		</cfif>
 
-		<cfset local.contact = createObject("component", "alert.com.simpleContact").init(local.user) />
+		<cfset local.contact = createObject("component", "com.blackboard.connect.simpleContact").init(local.user) />
 		<cfset rc.contact = local.contact />
 	</cffunction>
 
@@ -31,7 +31,7 @@
 		<cfset var local = structNew() />
 		<cfset local.bb = getBBObject() />
 
-		<cfset local.simple = createObject("component", "alert.com.simpleContact").simpleInit(argumentCollection=rc) />
+		<cfset local.simple = createObject("component", "com.blackboard.connect.simpleContact").simpleInit(argumentCollection=rc) />
 		<cfset local.contact = local.simple.getContact() />
 
 		<cfset local.contactXML = local.bb.saveContact(local.contact) />
@@ -50,6 +50,6 @@
 		<cfset config.secret = "GhyMgB9ehge4rKJ" />
 		<cfset config.webserviceURL = "https://ServiceSTG.BlackboardConnect.Com/Contact/v2/ContactService.asmx" />
 		<cfset config.siteLocalId = "140779" />
-		<cfreturn CreateObject("component","alert.com.blackboard").init(config.secret, config.rawKey, config.webserviceURL, config.siteLocalId) />
+		<cfreturn CreateObject("component","com.blackboard.connect.connect").init(config.secret, config.rawKey, config.webserviceURL, config.siteLocalId) />
 	</cffunction>
 </cfcomponent>

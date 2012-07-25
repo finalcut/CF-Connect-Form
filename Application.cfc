@@ -2,7 +2,7 @@
 	<cfscript>
 	variables.framework = structNew();
 
-    variables.framework.reloadApplicationOnEveryRequest = false;
+    variables.framework.reloadApplicationOnEveryRequest = true;
 	</cfscript>
 	<cffunction name="setupRequest">
 		<cfset controller('security.checkMUID') />
