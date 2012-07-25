@@ -31,7 +31,6 @@
 		<cfset local.result = sendRequest(local.xmlVal, "BBConnect.Service.Contact/GetContact") />
 		<cfset local.contact = xmlToContact(local.result.filecontent) />
 
-
 		<cfreturn local.contact />
 	</cffunction>
 
@@ -46,9 +45,9 @@
 				<Demographics Gender="#contact.getGender()#" Language="#contact.getLanguage()#" />
 				#GetAddressNodes(arguments.contact.getAddresses())#
 				#GetPhoneNodes(arguments.contact.getPhoneNumbers())#
+				#GetSmsNodes(arguments.contact.getSmsNumbers())#
 				#GetEmailNodes(arguments.contact.getEmailAddresses())#
 				#GetFaxNodes(arguments.contact.getFaxNumbers())#
-				#GetSmsNodes(arguments.contact.getSmsNumbers())#
 				#GetImNodes(arguments.contact.getImAddresses())#
 				#GetPagerNodes(arguments.contact.getPagerNumbers())#
 				#GetGroupNodes(arguments.contact.getGroups())#
@@ -263,6 +262,9 @@
 					local.o = createObject("component", "alert.com.#local.child.xmlName#").initFromXML(local.child);
 					if(local.child.xmlName EQ "Phone"){
 						local.c.addPhone(local.o);
+					}
+					if(local.child.xmlName EQ "SMS"){
+						local.c.addSmsNumber(local.o);
 					}
 					if(local.child.xmlName EQ "Email"){
 						local.c.addEmailAddress(local.o);
