@@ -1,1 +1,2 @@
-<cfdump var="#request#"><Cfabort>
+An error has occured:
+<cfoutput>#request.exception.cause.detail#</cfoutput>

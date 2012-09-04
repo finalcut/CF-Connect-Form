@@ -15,6 +15,8 @@
 		<cfset local.bb = getBBObject() />
 		<cfset local.user = local.bb.getContact(rc.nineOhOneNumber, "Student") />
 
+		
+
 
 		<cfif ArrayLen(local.user.getEmailAddresses()) EQ 0>
 
@@ -25,6 +27,8 @@
 		<cfset local.contact = createObject("component", "com.blackboard.connect.simpleContact").init(local.user) />
 		<cfset rc.contact = local.contact />
 	</cffunction>
+
+
 
 	<cffunction name="process">
 		<cfargument name="rc">
