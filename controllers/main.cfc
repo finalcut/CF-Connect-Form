@@ -62,6 +62,7 @@
 			<cffile action="read" file="#ExpandPath('./')#config.xml" variable="c">
 			<cfwddx action="wddx2cfml" input="#c#" output="c" />
 			<cfset variables.instance.config = c />
+			<cfset variables.instance.config.loggingPath = ExpandPath('./#variables.instance.config.loggingPath#') />
 		</cfif>
 		<cfreturn variables.instance.config />
 	</cffunction>
