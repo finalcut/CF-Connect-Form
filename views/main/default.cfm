@@ -24,7 +24,7 @@
 			<div class="row offset1">
 				<div class="span5">
 					<label for="text">Text Number</label>
-					<input type="text" name="text" id="text" value="#rc.contact.getTextNumber()#" class="phoneUS"  />
+					<input type="text" name="text" id="text" value="#rc.contact.getTextNumber()#" class="phoneUS phone"  />
 				</div>
 				<div class="span4 alert alert-error">
 					NOTE: SIP and Google Voice are not supported for mobile messaging. Please provide your real cellular number.
@@ -37,17 +37,17 @@
 			<div class="row offset1">
 				<div class="span5">
 					<label for="home">Home Phone</label>
-					<input type="text" name="homePhone" id="home" value="#rc.contact.getHomePhone()#" class="phoneUS" />
+					<input type="text" name="homePhone" id="home" value="#rc.contact.getHomePhone()#" class="phoneUS phone" />
 				</div>
 				<div class="span5">
 					<label for="work">Work Phone</label>
-					<input type="text" name="workPhone" id="work" value="#rc.contact.getWorkPhone()#" class="phoneUS" />
+					<input type="text" name="workPhone" id="work" value="#rc.contact.getWorkPhone()#" class="phoneUS phone" />
 				</div>
 			</div>
 			<div class="row offset1">
 				<div class="span5">
 					<label for="mobile">Mobile Phone</label>
-					<input type="text" name="mobilePhone" id="mobile" value="#rc.contact.getMobilePhone()#" class="phoneUS" />
+					<input type="text" name="mobilePhone" id="mobile" value="#rc.contact.getMobilePhone()#" class="phoneUS phone" />
 				</div>
 			</div>			
 		</fieldset>
@@ -60,8 +60,7 @@
 
 		<div class="modal hide fade" id="agreementModal" tabindex="-1" role="dialog" aria-labelledby="agreementHeader" aria-hidden="true">
 			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h3 id="agreementHeader">User Aggreement</h3>
+				<h3 id="agreementHeader">User Agreement</h3>
 			</div>
 			<div class="modal-body">
 				The MU Alert System is powered through Blackboard Connect, a worldwide provider of emergency notification systems.  Enrollment in the MU Alert System is free, voluntary, and is strongly recommended. MU Alert notices will only be sent for emergency notifications and testing and maintenance of the system.   Tests are expected to be conducted once per semester.  I am enrolling in this system for the purpose of receiving emergency alerts delivered by the system.  MU Alerts will be sent to my choice of one or more of the following communication paths: e-mail, voice call, and SMS/text messages.  I understand that my rate plan with my communications provider determines whether any extra charges are incurred by MU Alert messages delivered to my phone.  Marshall University will not be responsible for any charges incurred by subscription to the MU Alert system.  The contact information I provide will only be used for the MU Alert system and will not be shared for any commerical purposes.  Subscribers are responsible for periodically reviewing and maintaining their contact information for accuracy.
@@ -85,13 +84,17 @@
 <script type="text/javascript">
 	$().ready(function(){
 
+		$('.phone').mask("999-999-9999");
+
+
 		$('#agreementModal').modal({
-			keyboard: false
+			keyboard: false,
+			backdrop: 'static'
 
 		});
 
 		$("#btnRejectAgreement").click(function(){
-			history.go(-2);
+			window.close();
 		})
 
 

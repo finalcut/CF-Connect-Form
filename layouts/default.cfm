@@ -21,6 +21,7 @@
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/bootstrap-modal.js'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/jquery.flexslider-min.js'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/plugins/jquery.validate.min.js'></script>
+<script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/plugins/input-mask.js'></script>
 </head>
 <body>
 <header id="branding" role="banner">
