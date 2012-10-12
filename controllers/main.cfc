@@ -2,6 +2,10 @@
 	<cffunction name="before" output="true">
 	</cffunction>
 
+	<cffunction name="init">
+		<cfset  variables.instance= structNew() />
+	</cffunction>
+
 	<cffunction name="default">
 		<cfargument name="rc">
 
@@ -45,15 +49,25 @@
 	</cffunction>
 
 
+
 	<cffunction name="getBBObject" access="private" returntype="any">
-		<cfset  var config = structNew() />
-		<cfset config.today = DateConvert("local2utc",Now()) />
-		<cfset config.dateVal = DateFormat(config.today, "yyyymmdd") />
-		<cfset config.timeVal = TimeFormat(config.today, "HHmm") />
-		<cfset config.rawKey = "140779rA4AK" />
-		<cfset config.secret = "GhyMgB9ehge4rKJ" />
-		<cfset config.webserviceURL = "https://ServiceSTG.BlackboardConnect.Com/Contact/v2/ContactService.asmx" />
-		<cfset config.siteLocalId = "140779" />
-		<cfreturn CreateObject("component","com.blackboard.connect.connect").init(config.secret, config.rawKey, config.webserviceURL, config.siteLocalId) />
+		<cfset var config = getConfig() />
+		<cfreturn CreateObject("component","com.blackboard.connect.connect").init(config.secret, config.rawKey, config.webserviceURL, config.siteLocalId, config.loggingPath, config.uselogging) />
+	</cffunction>
+
+	<cffunction name="getConfig" access="private" returntype="any">
+		<cfif NOT StructKeyExists(variables.instance, "config")>
+			<cfset variables.instance.config = structNew() />
+			<cfset variables.instance.config.today = DateConvert("local2utc",Now()) />
+			<cfset variables.instance.config.dateVal = DateFormat(variables.instance.config.today, "yyyymmdd") />
+			<cfset variables.instance.config.timeVal = TimeFormat(variables.instance.config.today, "HHmm") />
+			<cfset variables.instance.config.rawKey = "140779rA4AK" /> <!---  140779Ax6Wn--->
+			<cfset variables.instance.config.secret = "GhyMgB9ehge4rKJ" /> <!---  j9t3DUQcFAbHefH --->
+			<cfset variables.instance.config.webserviceURL = "https://ServiceSTG.BlackboardConnect.Com/Contact/v2/ContactService.asmx" />
+			<cfset variables.instance.config.siteLocalId = "140779" />
+			<cfset variables.instance.config.loggingPath = "#ExpandPath('./')#logs/bb.log" />
+			<cfset variables.instance.config.uselogging = 1 />
+		</cfif>
+		<cfreturn variables.instance.config />
 	</cffunction>
 </cfcomponent>
