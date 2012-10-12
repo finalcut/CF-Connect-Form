@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="http://muwww-new.marshall.edu/bootstrap/css/bootstrap-responsive.css">
 <script type='text/javascript' src='http://www.google.com/jsapi?ver=1.0'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/bootstrap-modal.js'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/jquery.flexslider-min.js'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/plugins/jquery.validate.min.js'></script>
 </head>
