@@ -62,6 +62,9 @@
 			<cffile action="read" file="#ExpandPath('./')#config.xml" variable="c">
 			<cfwddx action="wddx2cfml" input="#c#" output="c" />
 			<cfset variables.instance.config = c />
+			<cfset variables.instance.config.today = DateConvert("local2utc",Now()) />
+			<cfset variables.instance.config.dateVal = DateFormat(variables.instance.config.today, "yyyymmdd") />
+			<cfset variables.instance.config.timeVal = TimeFormat(variables.instance.config.today, "HHmm") />			
 		</cfif>
 		<cfreturn variables.instance.config />
 	</cffunction>
