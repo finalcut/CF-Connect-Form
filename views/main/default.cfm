@@ -66,7 +66,7 @@
 			</div>
 		</div>
 		<div class="form-actions">
-            <button type="submit" class="btn btn-primary">Save</button>
+            <input type="submit" class="btn btn-primary" value="Save" />
             <button class="btn">Cancel</button>
           </div>
 </form>
