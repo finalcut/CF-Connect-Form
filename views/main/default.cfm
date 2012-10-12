@@ -9,13 +9,11 @@
 			<div class="row offset1">
 				<div class="span5">
 				<label>Primary Email</label>
-				<div>
 					<input type="text" name="email" id="email1" value="#rc.contact.getPrimaryEmail()#" class="email" />
-				</div>
 				</div>
 				<div class="span5">
 				<label for="email2">Secondary Email</label>
-				<input type="text" name="email" id="email2" value="#rc.contact.getSecondaryEmail()#" class="email" />
+					<input type="text" name="email" id="email2" value="#rc.contact.getSecondaryEmail()#" class="email" />
 				</div>
 			</div>
 			
@@ -98,10 +96,13 @@
 		})
 
 
-		$("#frmAlert").validate();
+		//$("#frmAlert").validate();
 
 		$("#btnUnsubscribe").click(function(){
 			if(confirm('Are you sure you wish to be removed from the Marshall University Emergency Alert System?')){
+
+				$('#frmAlert').attr('action','index.cfm?action=main.unsubscribe');
+				$('#frmAlert').submit();
 				return false;
 			}
 		});
