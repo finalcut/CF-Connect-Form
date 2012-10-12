@@ -86,7 +86,7 @@
 	$().ready(function(){
 
 		$('#agreementModal').modal({
-			keyboard: false,
+			keyboard: false
 
 		});
 
