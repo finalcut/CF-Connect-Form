@@ -58,7 +58,6 @@
 	<cffunction name="getConfig" access="private" returntype="any">
 		<cfset var c = "" />
 		<cfset var o = "" />
-		<cfdump var="#ExpandPath('/')#"><cfabort>
 		<cfif NOT StructKeyExists(variables.instance, "config")>
 			<cffile action="read" file="#ExpandPath('./')#config.xml" variable="c">
 			<cfwddx action="wddx2cfml" input="#c#" output="c" />
