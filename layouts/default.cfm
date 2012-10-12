@@ -19,6 +19,7 @@
 <script type='text/javascript' src='http://www.google.com/jsapi?ver=1.0'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/bootstrap.min.js'></script>
 <script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/jquery.flexslider-min.js'></script>
+<script type='text/javascript' src='http://muwww-new.marshall.edu/bootstrap/js/plugins/jquery.validate.min.js'></script>
 </head>
 <body>
 <header id="branding" role="banner">
