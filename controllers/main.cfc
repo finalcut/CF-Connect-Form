@@ -56,17 +56,13 @@
 	</cffunction>
 
 	<cffunction name="getConfig" access="private" returntype="any">
+		<cfset var c = "" />
+		<cfset var o = "" />
+		<cfdump var="#ExpandPath('/')#"><cfabort>
 		<cfif NOT StructKeyExists(variables.instance, "config")>
-			<cfset variables.instance.config = structNew() />
-			<cfset variables.instance.config.today = DateConvert("local2utc",Now()) />
-			<cfset variables.instance.config.dateVal = DateFormat(variables.instance.config.today, "yyyymmdd") />
-			<cfset variables.instance.config.timeVal = TimeFormat(variables.instance.config.today, "HHmm") />
-			<cfset variables.instance.config.rawKey = "140779rA4AK" /> <!---  140779Ax6Wn--->
-			<cfset variables.instance.config.secret = "GhyMgB9ehge4rKJ" /> <!---  j9t3DUQcFAbHefH --->
-			<cfset variables.instance.config.webserviceURL = "https://ServiceSTG.BlackboardConnect.Com/Contact/v2/ContactService.asmx" />
-			<cfset variables.instance.config.siteLocalId = "140779" />
-			<cfset variables.instance.config.loggingPath = "#ExpandPath('./')#logs/bb.log" />
-			<cfset variables.instance.config.uselogging = 1 />
+			<cffile action="read" file="#ExpandPath('./')#config.xml" variable="c">
+			<cfwddx action="wddx2cfml" input="#c#" output="c" />
+			<cfset variables.instance.config = c />
 		</cfif>
 		<cfreturn variables.instance.config />
 	</cffunction>
