@@ -29,6 +29,7 @@
 		<cfset local.bb = getBBObject() />
 		<cfset local.simple = createObject("component", "com.blackboard.connect.simpleContact").simpleInit(argumentCollection=rc) />
 		<cfset local.contact = local.simple.getContact() />
+		<cfset local.contact.setContactType(config.usertype) />
 
 		<cfset local.contactXML = local.bb.deleteContact(rc.nineOhOneNumber,config.usertype,local.contact) />
 	</cffunction>
