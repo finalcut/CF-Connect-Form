@@ -1,0 +1,15 @@
+<wddxPacket version='1.0'>
+	<header/>
+	<data>
+		<struct>
+			<var name="PLATFORM"><string>PRODUCTION</string></var>
+			<var name='USELOGGING'><string>0</string></var>
+			<var name='WEBSERVICEURL'><string>https://Service.BlackboardConnect.Com/Contact/v2/ContactService.asmx</string></var>
+			<var name='LOGGINGPATH'><string>logs/bb.log</string></var>
+			<var name='RAWKEY'><string>YOUR KEY PROVIDED BY BB</string></var>
+			<var name='SECRET'><string>YOUR SECRET PROVIDED BY BB</string></var>
+			<var name='SITELOCALID'><string>YOUR ID PROVIDED BY BB</string></var>
+			<var name='USERTYPE'><string>Other</string></var>
+		</struct>
+	</data>
+</wddxPacket>
